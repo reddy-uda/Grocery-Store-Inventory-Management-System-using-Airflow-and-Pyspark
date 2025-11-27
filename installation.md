@@ -47,7 +47,7 @@ Open **System Properties > Advanced > Environment Variables**
 | ----- | ----- |
 | SPARK\_HOME | C:\\spark\\spark-3.5.7-bin-hadoop3 |
 | HADOOP\_HOME | C:\\hadoop |
-| PYSPARK\_PYTHON | C:\\path\\to\\your\\\\Programs\\Python\\Python310\\python.exe |
+| PYSPARK\_PYTHON | C:\\path\\to\\your\\Programs\\Python\\Python310\\python.exe |
 | JAVA\_HOME | C:\\Program Files\\Java\\jdk-11.0.28 |
 
 3. ## **Update the PATH Variable**
