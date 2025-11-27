@@ -1,0 +1,114 @@
+{% include "links.html" %}
+<!-- navbar.html -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stock Manager Navigation</title>
+  <style>
+    body {
+      background-color: #f7f9fc;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #0077b6, #00b4d8);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #e0f7fa;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: #caf0f8;
+      color: #023e8a;
+      transform: translateY(-2px);
+    }
+
+    .nav-links a.active {
+      background-color: #fff;
+      color: #023e8a;
+      font-weight: 600;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #0096c7;
+        position: absolute;
+        top: 65px;
+        right: 30px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-links a {
+        font-size: 1.3rem;
+        text-align: center;
+      }
+
+      .nav-toggle {
+        display: block;
+        color: #fff;
+        font-size: 1.8rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Stock Manager</div>
+    <div class="nav-links">
+      <a href="/stock_manager_home" class="active">Dashboard</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+
+  <script>
+    // Mobile navigation toggle
+    function toggleNav() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>

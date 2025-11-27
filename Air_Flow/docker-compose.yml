@@ -1,0 +1,101 @@
+version: "3.9"
+
+
+networks:
+  airflow-net:
+    driver: bridge
+
+
+services:
+
+
+  # 🗄️ Postgres database for Airflow & DAGs
+  airflow-postgres:
+    image: postgres:13
+    container_name: airflow-postgres
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5433:5432"   # host access for PyCharm/Spark
+    # volumes:
+    #   - ./postgresql.conf:/etc/postgresql/postgresql.conf
+    #   - ./pg_hba.conf:/etc/postgresql/pg_hba.conf
+    # command: -c 'config_file=/etc/postgresql/postgresql.conf'
+
+
+
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - airflow-net
+
+
+  # ⚡ Redis (optional)
+  airflow-redis:
+    image: redis:7.2-bookworm
+    container_name: airflow-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - airflow-net
+
+
+  # 🌐 Airflow API server
+  airflow-apiserver:
+    image: apache/airflow:3.1.0
+    container_name: airflow-apiserver
+    depends_on:
+      - airflow-postgres
+      - airflow-redis
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5433/airflow
+      AIRFLOW__API__AUTH_BACKENDS: "airflow.api.auth.backend.basic_auth"
+      AIRFLOW__CORE__FERNET_KEY: "YOUR_FERNET_KEY_HERE"
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "False"
+    volumes:
+      - ./dags:/opt/airflow/dags
+    ports:
+      - "8085:8080"
+    networks:
+      - airflow-net
+    command: api
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+  # 🕓 Airflow Scheduler
+  airflow-scheduler:
+    image: apache/airflow:3.1.0
+    container_name: airflow-scheduler
+    depends_on:
+      - airflow-postgres
+      - airflow-redis
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5433/airflow
+      AIRFLOW__CORE__FERNET_KEY: "YOUR_FERNET_KEY_HERE"
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+    volumes:
+      - ./dags:/opt/airflow/dags
+    networks:
+      - airflow-net
+    command: scheduler
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep -f 'airflow scheduler' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+
