@@ -4,8 +4,8 @@ The Grocery Store Inventory Management System is a fully automated data pipeline
 
 **Table of contents**
 
-1. Project focus  
-2. Architecture  
+1. [Project focus](#project-focus)  
+2. [Architecture](#architecture)  
 3. Tools and Technologies  
 4. Getting started  
 5. Installation  
@@ -15,7 +15,7 @@ The Grocery Store Inventory Management System is a fully automated data pipeline
 9. Power BI Integration  
 10. Web Application
 
-1. ## **Project focus:**
+1. ## **Project focus**
 
 This project is centered on building a fully automated Retail Data Pipeline that combines Apache Airflow, PostgreSQL, PySpark, and Power BI to manage retail inventory and sales data in a seamless and dependable way. The aim is to create a system that can continuously bring in fresh data, clean and organize it, perform analytics, and make insights instantly available without needing manual involvement.
 
