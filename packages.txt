@@ -1,3 +1,0 @@
-openjdk-17-jdk
-curl
-vim
