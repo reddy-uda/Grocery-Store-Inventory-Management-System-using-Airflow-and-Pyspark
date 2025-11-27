@@ -6,7 +6,7 @@ The Grocery Store Inventory Management System is a fully automated data pipeline
 
 1. [Project focus](#project-focus)  
 2. [Architecture](#architecture)  
-3. Tools and Technologies  
+3. Tools and Technologies(#Requirements (Tools and Technologies))
 4. Getting started  
 5. Installation  
 6. Airflow Folder Overview  
@@ -15,7 +15,7 @@ The Grocery Store Inventory Management System is a fully automated data pipeline
 9. Power BI Integration  
 10. Web Application
 
-1. ## **Project focus**
+## **Project focus**
 
 This project is centered on building a fully automated Retail Data Pipeline that combines Apache Airflow, PostgreSQL, PySpark, and Power BI to manage retail inventory and sales data in a seamless and dependable way. The aim is to create a system that can continuously bring in fresh data, clean and organize it, perform analytics, and make insights instantly available without needing manual involvement.
 
@@ -31,11 +31,12 @@ Additionally, MySQL is used in the web application layer specifically for handli
 
 Overall, the project delivers a scalable and production-ready solution for real retail analytics.
 
-2. ## **Architecture**   
+## **Architecture**   
      
    ![Architecture](https://raw.githubusercontent.com/reddy-uda/Grocery-Store-Inventory-Management-System-using-Airflow-and-Pyspark/master/images/architecture.png)
   
-3. ## **Requirements (Tools and Technologies)**  
+
+## **Requirements (Tools and Technologies)**  
    This project brings together a set of tools that work smoothly across different parts of the data pipeline. Each technology is used for a specific purpose, and together they help the system run reliably from end to end.
 
     **Workflow & Automation**
@@ -67,17 +68,19 @@ Overall, the project delivers a scalable and production-ready solution for real 
 * JDBC Drivers \- Enable Spark to connect and communicate with PostgreSQL.
 
 
-4. ## **Getting started**
+## **Getting started**
 
 This project is meant to guide you through setting up and running an automated retail data pipeline from the ground up. Before working with the workflows, you’ll need to install a few essential tools, including Python, Airflow, PostgreSQL, and PySpark. The next section walks you through the installation process step by step. Once everything is installed, you can clone the project, look through the folder structure, and get familiar with the DAGs, database design, and transformation scripts to see how each part fits together. After the setup is complete, you can start running the DAGs and connect Power BI to view the generated insights.
 
-5. ## **Installation**
+
+## **Installation**
 
 To set up the required tools and prepare your environment for this project, please refer to the **installation.md** file included in the repository. It provides step-by-step instructions for installing Python, Airflow, PostgreSQL, PySpark, and all other dependencies needed to run the pipeline.
 
 The guide also explains how to configure the necessary environment variables, create database connections, and prepare your system for running the DAGs smoothly. Make sure to follow the installation document before moving ahead with the workflow execution.
 
-6. ## **Airflow Folder Overview**
+
+## **Airflow Folder Overview**
 
     This project uses a few key files that are essential for running the Airflow-based retail data pipeline. Below is a short explanation of only the parts that matter for the workflow which are in the “Air\_Flow” Folder.
 
@@ -92,7 +95,6 @@ These files control how data flows through the pipeline.
    Creates and refreshes all the database tables. This is usually triggered during setup or when you want to reset the schema.
 
   **PostgreSQL Database Schema:**
-
 
    **docker-compose.yml**
 
@@ -118,7 +120,7 @@ Configuration files are used to adjust PostgreSQL behavior and authentication ru
 
 Lists Python libraries needed for Airflow, PostgreSQL connections, PySpark integration, and utility scripts.
 
-7. ## **User Interface of Airflow**
+## **User Interface of Airflow**
 
 Airflow is used to schedule and manage all the workflows in this project. The initial Airflow setup was created using the command `astro dev init`. This step is already completed, so **do not run this command again** after cloning the project.
 
@@ -144,7 +146,7 @@ All workflow files are stored inside the `dags/` folder. Airflow automatically d
 
 `│    └── refresh_tables_dag.py`
 
-# **Airflow UI**
+### **Airflow UI**
 
 **Home Tab:** This page provides an overview of the Airflow environment, showing system status, recent tasks, and general workflow activity.
 
@@ -161,7 +163,7 @@ All workflow files are stored inside the `dags/` folder. Airflow automatically d
 
 In this view, you can monitor recent DAG runs, check their status, review execution details, and explore logs for each task.
 
-8. ## **Data Processing using Pyspark**
+## **Data Processing using Pyspark**
 
 PySpark is used in this project to handle all the heavy data processing tasks. Once Airflow ingests the raw inventory and sales data into PostgreSQL, PySpark loads these tables, processes them, and prepares the cleaned and aggregated outputs that will later be used in Power BI.
 
@@ -187,7 +189,7 @@ Inside the PySpark scripts, the following operations take place:
 
 Once the transformations are complete, PySpark writes the final processed results back into PostgreSQL, storing them in dedicated analytics tables that Power BI can read directly.
 
-9. ## **Power BI Integration**
+## **Power BI Integration**
 
 Power BI is used in this project to transform the processed PostgreSQL data into clear and interactive dashboards. The repository includes a ready-made Power BI reports named **Inventory\_Dashboard.pbix**, **Sales\_Dashboard.pbix** which are designed to connect directly to the analytics tables generated by PySpark. After the data pipeline runs, PySpark loads all cleaned and aggregated data back into PostgreSQL, and this becomes the source for the Power BI visuals.
 
@@ -207,7 +209,7 @@ This dashboard visualizes sales trends, daily/weekly performance, top-selling pr
 
 Together, these dashboards allow managers to monitor the real-time output of the pipeline and make informed business decisions based on up-to-date analytics.
 
-10. ## **Web application**
+## **Web application**
 
 The project also includes a simple web application that allows inventory and sales managers to access the Power BI dashboard in a secure and organized way. The application uses MySQL to handle user registration and login, ensuring that only authorized managers can view sensitive business insights. Before running the application, the MySQL database must be loaded using the script provided in the **Web\_Application/Database/** folder. The main application logic runs from **Web\_Application/source\_code/main.py**, which handles the routing, authentication, and dashboard display.
 
