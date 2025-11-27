@@ -2,7 +2,7 @@
 
 If you run into issues while working with the project, especially problems related to PostgreSQL or the Astronomer environment, this guide should help you sort them out quickly.
 
-**1\. When PostgreSQL Port 5432 Is Already in Use**
+## **1\. When PostgreSQL Port 5432 Is Already in Use**
 
 Sometimes Airflow or the pipeline can fail to connect because something else on your system is already using port 5432\. You can check that with the following commands.
 
@@ -16,7 +16,7 @@ If it shows that the service is running, stop it:
 
 `Stop-Service postgresql-x64-18`
 
-**2\. Find Out What Is Using Port 5432**
+## **2\. Find Out What Is Using Port 5432**
 
 If PostgreSQL isn't the problem, then another program might be taking the port.
 
@@ -36,7 +36,7 @@ Replace 12345 with the PID you found:
 
 `taskkill /PID 12345 /F`
 
-**3\. Restart Astronomer**
+## **3\. Restart Astronomer**
 
 If things still don’t work as expected, restarting the Astronomer setup usually helps.
 
@@ -46,7 +46,7 @@ If things still don’t work as expected, restarting the Astronomer setup usuall
 
 `astro dev start`
 
-**4\. Reset the Entire Project Environment**
+## **4\. Reset the Entire Project Environment**
 
 If the issue continues even after restarting, you may need to reset the full environment.
 
