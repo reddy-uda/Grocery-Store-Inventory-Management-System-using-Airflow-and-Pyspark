@@ -1,6 +1,6 @@
 **Grocery Store Inventory Management System**
 
- 	The Grocery Store Inventory Management System is a fully automated data pipeline that collects, processes, and analyzes retail inventory and sales data using Airflow, PostgreSQL, PySpark, and Power BI. It delivers real-time insights through dashboards, and a web application allows authorized managers to securely log in and view these reports online.
+The Grocery Store Inventory Management System is a fully automated data pipeline that collects, processes, and analyzes retail inventory and sales data using Airflow, PostgreSQL, PySpark, and Power BI. It delivers real-time insights through dashboards, and a web application allows authorized managers to securely log in and view these reports online.
 
 **Table of contents**
 
@@ -136,11 +136,8 @@ The project starts building… . After building, Astronomer automatically launch
 All workflow files are stored inside the `dags/` folder. Airflow automatically detects any DAG placed in this directory and displays it in the UI.
 
 `Air-Flow-folder/`
-
 `│── dags/`
-
 `│    ├── api_integration_dag.py`
-
 `│    └── refresh_tables_dag.py`
 
 ### **Airflow UI**
