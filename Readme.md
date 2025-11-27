@@ -33,7 +33,8 @@ Overall, the project delivers a scalable and production-ready solution for real 
 
 2. ## **Architecture**   
      
-   **![][image1]**  
+   ![Architecture](https://raw.githubusercontent.com/reddy-uda/Grocery-Store-Inventory-Management-System-using-Airflow-and-Pyspark/master/images/architecture.png)
+  
 3. ## **Requirements (Tools and Technologies)**  
    This project brings together a set of tools that work smoothly across different parts of the data pipeline. Each technology is used for a specific purpose, and together they help the system run reliably from end to end.
 
@@ -147,7 +148,7 @@ All workflow files are stored inside the `dags/` folder. Airflow automatically d
 
 **Home Tab:** This page provides an overview of the Airflow environment, showing system status, recent tasks, and general workflow activity.
 
-![][image2]
+![Airflow Home](https://raw.githubusercontent.com/reddy-uda/Grocery-Store-Inventory-Management-System-using-Airflow-and-Pyspark/master/images/Airflow_home.png)
 
 **DAGs Tab:** This page shows all available DAGs, their schedules, status, and whether they are active.
 
@@ -155,7 +156,8 @@ All workflow files are stored inside the `dags/` folder. Airflow automatically d
 
  **referesh\_inventory\_ tables DAG**
 
-![][image4]
+![Refresh_dag](https://raw.githubusercontent.com/reddy-uda/Grocery-Store-Inventory-Management-System-using-Airflow-and-Pyspark/master/images/Refresh.png)
+
 
 In this view, you can monitor recent DAG runs, check their status, review execution details, and explore logs for each task.
 
@@ -193,12 +195,13 @@ When you open either dashboard file for the first time, Power BI will ask you to
 
  **Inventory Dashboard**
 
-![][image5]  
+![Inventory_dashboard](https://raw.githubusercontent.com/reddy-uda/Grocery-Store-Inventory-Management-System-using-Airflow-and-Pyspark/master/images/Inventory_Dashboard.png)
+  
  This dashboard highlights product availability, low-stock alerts, aging analysis, stock valuation, and overall inventory performance.
 
  **Sales Dashboard**
 
-![][image6]
+![Sales_dashboard](https://raw.githubusercontent.com/reddy-uda/Grocery-Store-Inventory-Management-System-using-Airflow-and-Pyspark/master/images/Sales_Dashboard.png)
 
 This dashboard visualizes sales trends, daily/weekly performance, top-selling products, revenue distribution, and warehouse-level sales insights.
 
