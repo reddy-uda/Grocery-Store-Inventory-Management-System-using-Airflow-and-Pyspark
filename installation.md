@@ -38,7 +38,7 @@ Place the `winutils.exe` inside your Hadoop directory.
 
 2. ##  **Set Environment Variables**
 
-Open **System Properties → Advanced → Environment Variables**  
+Open **System Properties > Advanced > Environment Variables**  
  and add the following **System Variables**:
 
 ### **System Variables**
