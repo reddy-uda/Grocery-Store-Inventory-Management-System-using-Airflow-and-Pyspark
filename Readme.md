@@ -174,7 +174,7 @@ The PySpark processing scripts are stored inside the project:
 
 `PySpark/powerbi.py`
 
-These scripts can be triggered through an Airflow DAG or run manually during development. Each script connects to PostgreSQL using JDBC and loads the required raw tables into Spark DataFrames.
+These scripts are triggered through an Airflow DAG or run manually during development. Each script connects to PostgreSQL using JDBC and loads the required raw tables into Spark DataFrames.
 
 Inside the PySpark scripts, the following operations take place:
 
@@ -189,6 +189,7 @@ Inside the PySpark scripts, the following operations take place:
 * Creating optimized analytics tables specifically designed for Power BI dashboards
 
 Once the transformations are complete, PySpark writes the final processed results back into PostgreSQL, storing them in dedicated analytics tables that Power BI can read directly.
+These scripts run directly in PyCharm by updating the JDBC driver path and PostgreSQL connection details according to your local system.
 
 ## **Power BI Integration**
 
