@@ -1,4 +1,4 @@
-1. ##  **Install Required Software**
+##  1. **Install Required Software**
 
 ### **Docker**
 
@@ -36,7 +36,7 @@ Download the Hadoop winutils binary:
 
 Place the `winutils.exe` inside your Hadoop directory.
 
-2. ##  **Set Environment Variables**
+## 2. **Set Environment Variables**
 
 Open **System Properties > Advanced > Environment Variables**  
  and add the following **System Variables**:
@@ -50,7 +50,7 @@ Open **System Properties > Advanced > Environment Variables**
 | PYSPARK\_PYTHON | C:\\path\\to\\your\\Programs\\Python\\Python310\\python.exe |
 | JAVA\_HOME | C:\\Program Files\\Java\\jdk-11.0.28 |
 
-3. ## **Update the PATH Variable**
+## 3. **Update the PATH Variable**
 
 In **System Variables**, select **Path**, then click **Edit** and add the following entries:
 
@@ -63,7 +63,7 @@ In **System Variables**, select **Path**, then click **Edit** and add the follow
 
 Make sure **%JAVA\_HOME%\\bin** appears above the others to avoid version conflicts.
 
-4. ##  **Verify Installation**
+##  4. **Verify Installation**
 
 After setting everything up, verify each tool:
 
@@ -83,9 +83,9 @@ After setting everything up, verify each tool:
 
 `astro version`
 
-## Create a Virtual Environment
+## 5. Create a Virtual Environment
 
-It is recommended to run the project inside a Python virtual environment.
+It is recommended to run the project inside a Python virtual environment when working in VS Code.
 
 ### Windows:
 `python -m venv venv`
