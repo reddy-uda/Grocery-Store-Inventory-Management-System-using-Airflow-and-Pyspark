@@ -79,6 +79,13 @@ To set up the required tools and prepare your environment for this project, plea
 
 The guide also explains how to configure the necessary environment variables, create database connections, and prepare your system for running the DAGs smoothly. Make sure to follow the installation document before moving ahead with the workflow execution.
 
+### Clone the Repository
+
+To get started, first clone the project:
+
+`git clone https://github.com/reddy-uda/Grocery-Store-Inventory-Management-System-using-Airflow-and-Pyspark.git`
+
+`cd Grocery-Store-Inventory-Management-System-using-Airflow-and-Pyspark`
 
 ## **Airflow Folder Overview**
 
@@ -102,17 +109,15 @@ Each table has a clear purpose, and together they make it simple to track produc
 
 Main tables represention:
 
-**products** – Holds the basic details of every item the store sells, such as its category, brand, name, price, and any discounts.
+**products** – Contains all essential details about each item the store sells, including the product name, SKU, category, cost, selling price, and other attributes.
 
-**suppliers** – Stores the information of the suppliers who provide the products, including their names and contact details.
+**suppliers** – Holds the list of suppliers along with their contact information. Each supplier can be linked to one or more products.
 
-**warehouses** – Describes the different storage locations where stock is kept.
+**warehouses** – Represents the different storage locations where inventory is maintained. Each warehouse is connected to a specific physical location.
 
-**inventory** – Records how much quantity of each product is available in every warehouse.
+**inventory** – Represents the different storage locations where inventory is maintained. Each warehouse is connected to a specific physical location.
 
-**sales** – Contains the details of each sale made, covering product, quantity sold, price, and transaction details.
-
-**inventory_changes** – Keeps a history of how stock levels change over time, whether daily or hourly.
+**product_sales** – Represents the different storage locations where inventory is maintained. Each warehouse is connected to a specific physical location.
 
 This structure helps the system perform several important tasks:
 
@@ -245,4 +250,18 @@ The project also includes a simple web application that allows inventory and sal
 Once a manager creates an account and logs in, they are taken to a dedicated page where the embedded Power BI dashboard is displayed. This makes it easy for users to view inventory trends, sales performance, low-stock alerts, and other key metrics directly from the browser without needing to open Power BI Desktop.
 
 The web app acts as a front-end layer that combines authentication, user access control, and data visualization. This setup provides a convenient and centralized place for operational teams to monitor the real-time output of the data pipeline.
+
+### Low-Stock Email Alerts
+
+The web application includes an automated low-stock alert system.  
+Whenever PySpark detects that a product's stock quantity falls below the defined threshold, that product is inserted into a **low_stock_alerts** table in PostgreSQL.  
+The web application reads this table and automatically sends an email notification to the Inventory Manager, including:
+
+- Product name  
+- Current quantity  
+- Threshold quantity  
+- Warehouse location  
+
+This ensures that managers receive immediate alerts and can restock items before they run out.
+
 
