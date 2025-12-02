@@ -1,9 +1,9 @@
 {% if session['role']== "admin" %}
     {% include 'ahead.html' %}
-{% elif session['role']== "supplier" %}
+{% elif session['role']== "store_manager" %}
     {% include 'shead.html' %}
-{% elif session['role']== "buyer" %}
-    {% include 'bhead.html' %}
+{% elif session['role']== "inventory_manager" %}
+    {% include 'ihead.html' %}
 {% endif %}
 <div class="black">
     <div >.</div>
