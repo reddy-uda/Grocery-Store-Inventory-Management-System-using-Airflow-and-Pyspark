@@ -97,6 +97,33 @@ These files control how data flows through the pipeline.
 **PostgreSQL Database Schema:**
 ![DataBase](https://raw.githubusercontent.com/reddy-uda/Grocery-Store-Inventory-Management-System-using-Airflow-and-Pyspark/master/images/Database.png)
 
+The PostgreSQL database is built to keep the system fast, organized, and easy to analyze.
+Each table has a clear purpose, and together they make it simple to track products, stock levels, and sales activity across the store.
+
+Main tables represention:
+
+**products** – Holds the basic details of every item the store sells, such as its category, brand, name, price, and any discounts.
+
+**suppliers** – Stores the information of the suppliers who provide the products, including their names and contact details.
+
+**warehouses** – Describes the different storage locations where stock is kept.
+
+**inventory** – Records how much quantity of each product is available in every warehouse.
+
+**sales** – Contains the details of each sale made, covering product, quantity sold, price, and transaction details.
+
+**inventory_changes** – Keeps a history of how stock levels change over time, whether daily or hourly.
+
+This structure helps the system perform several important tasks:
+
+- Identifying products that are running low
+
+- Understanding how long items have been sitting in storage
+
+- Comparing performance across warehouses
+
+- Studying sales trends over different periods
+
 **docker-compose.yml**
 
 The most important file for bringing up Airflow, PostgreSQL, and other services. Running `docker-compose up` starts the entire environment.
