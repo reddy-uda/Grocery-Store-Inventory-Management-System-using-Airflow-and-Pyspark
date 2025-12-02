@@ -83,5 +83,16 @@ After setting everything up, verify each tool:
 
 `astro version`
 
-If all commands run successfully, your environment is ready to start the program
+## Create a Virtual Environment
 
+It is recommended to run the project inside a Python virtual environment.
+
+### Windows:
+`python -m venv venv`
+`venv\Scripts\activate`
+
+After activating your environment, install dependencies:
+
+`pip install -r requirements.txt`
+
+If all commands run successfully, your environment is ready to start the program
