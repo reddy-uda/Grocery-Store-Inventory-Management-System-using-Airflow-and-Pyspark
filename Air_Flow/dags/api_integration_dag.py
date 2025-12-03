@@ -1,5 +1,3 @@
-# File: dags/api_integration_dag.py
-
 
 from airflow import DAG
 from airflow.operators.python import PythonOperator
@@ -37,7 +35,7 @@ def insert_inventory_data(**kwargs):
                 response.raise_for_status()
                 return response.json().get("products", [])
             except Exception as e:
-                print(f"❌ API request failed: {e}")
+                print(f"API request failed: {e}")
                 return []
 
 
@@ -45,7 +43,7 @@ def insert_inventory_data(**kwargs):
 
 
         if not api_products:
-            print("⚠️ No products fetched, skipping insertion.")
+            print("No products fetched, skipping insertion.")
             return
 
 
@@ -135,11 +133,11 @@ def insert_inventory_data(**kwargs):
         conn.commit()
         cur.close()
         conn.close()
-        print("✅ Inventory data inserted successfully.")
+        print("Inventory data inserted successfully.")
 
 
     except Exception as e:
-        print("❌ Error inserting data:", e)
+        print("Error inserting data:", e)
         raise
 
 
